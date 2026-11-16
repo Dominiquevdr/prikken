@@ -1,30 +1,1348 @@
-<!doctype html><html lang="nl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#fbf6f0"><title>Prikken · Samen een datum prikken</title><style>@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&family=Great+Vibes&display=swap');
-:root{font-family:'DM Sans',system-ui,sans-serif;color:#263b30;background:#fbf6f0;--forest:#174b39;--sage:#e8efe5;--cream:#fbf6f0;--line:#e9ded4;--copper:#b77a52}*{box-sizing:border-box}html{min-height:100%;background:#fbf6f0}body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 92% 0%,#f4dfcf 0%,transparent 38%),linear-gradient(160deg,#fffaf5,#f9f3ed 68%,#f5ebe2)}.wrap{position:relative;max-width:680px;margin:auto;padding:26px 20px 80px;min-height:100vh;overflow:hidden}.wrap:before{content:'✦';position:absolute;top:86px;right:15px;font-size:84px;color:#b6b99a;opacity:.15;pointer-events:none}header{position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:8px 0 24px;margin-bottom:25px;border-bottom:1px solid #e5d6c9}.brand{font-family:'Great Vibes',cursive;font-size:43px;line-height:1;color:#422e25;white-space:nowrap}.brand:before{content:'▢';display:inline-block;vertical-align:middle;margin-right:8px;font-family:serif;font-size:27px;color:#a56e49;transform:rotate(-8deg)}button,input{font:inherit}button{border:0;border-radius:15px;padding:14px 18px;background:linear-gradient(160deg,#2d6953,#164633);color:white;cursor:pointer;font-weight:700;min-height:48px;box-shadow:0 5px 12px #174b3918;transition:transform .15s,filter .15s}button:active{transform:scale(.985)}button:disabled{opacity:.5}button.secondary{background:linear-gradient(160deg,#f0f1e9,#e6e9de);color:#294d3d;box-shadow:none}button.danger{background:#fae6e2;color:#993c38;box-shadow:none}#homeBtn{font-size:13px;padding:12px 13px;max-width:145px}h1,h2{font-family:'DM Serif Display',Georgia,serif;color:#243b30;font-weight:400}h1{font-size:clamp(35px,8vw,49px);line-height:1.08;margin:0 0 13px;letter-spacing:-.5px}h2{font-size:29px;line-height:1.15;margin:0 0 20px}p{color:#69756c;line-height:1.6;margin:8px 0 22px}.card{position:relative;background:#fffdfa;border:1px solid #eadfd5;border-radius:27px;padding:24px;margin:20px 0;box-shadow:0 12px 28px #71533a13,0 2px 4px #71533a09}.muted{color:#788077;font-size:14px}.stack{display:grid;gap:15px}label{display:block;font-size:14px;font-weight:700;margin:8px 0;color:#334139}input[type=text],input[type=date],input[type=password]{display:block;width:100%;padding:15px 16px;border:1px solid #dcd8d1;border-radius:14px;background:#fff;color:#26392e;min-height:54px;margin-top:7px;outline:none}input:focus-visible,button:focus-visible{outline:3px solid #c7a47b;outline-offset:2px}input[type=checkbox]{accent-color:#235b46;width:23px;height:23px;flex-shrink:0}.option{display:flex;align-items:center;gap:14px;padding:15px;border:1px solid #e3e4d9;border-radius:14px;cursor:pointer;background:#fff;min-height:62px}.option:has(input:checked){background:#eaf3e9;border-color:#a6c4ad}.option label{margin:0;flex:1;cursor:pointer;font-weight:700;font-size:14px}.row{display:flex;align-items:center;gap:9px;flex-wrap:wrap}.between{justify-content:space-between}.hidden{display:none!important}.pill{font-size:12px;padding:7px 12px;border-radius:20px;background:#e7efe4;color:#315d45;font-weight:700}.entry{padding:16px 0;border-bottom:1px solid #ece6df}.entry:last-child{border-bottom:0}.count{font-weight:800;color:#294f43;background:#e8f0e5;border-radius:18px;padding:5px 10px;white-space:nowrap}.notice{border-radius:14px;padding:14px 16px;background:#fff0d9;color:#76521d;font-size:14px;margin:12px 0}.error{background:#ffe9e6;color:#8b2824}.success{background:#e9f4e9;color:#315c3e}.date-row{display:flex;align-items:center;justify-content:space-between;gap:10px}.small{font-size:12px}.wide{width:100%}a{color:#294f43}footer{margin-top:50px;font-size:12px;color:#99958d;text-align:center}#app{position:relative;z-index:1}#app>.card>h2{margin-bottom:25px}#app>.card .stack>button[type=submit]{width:100%;margin-top:6px}#appointments>.card{padding:23px}#appointments>.card>.row:first-child strong{font-family:'DM Serif Display',Georgia,serif;font-size:25px;font-weight:400}#appointments>.card>.row:last-child{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}#appointments>.card>.row:last-child button{font-size:13px;padding:11px 7px;min-height:45px}#chosenDates .date-row{padding:9px 0;border-bottom:1px solid #eee5dd}#chosenDates button{min-height:34px;padding:5px 12px}#vote button[type=submit]{width:100%}#votes strong{font-size:14px}#app>.row.between{align-items:flex-start}#app>.row.between>div{flex:1 1 230px}#app>.row.between>button{font-size:13px}#app>.pill{margin-bottom:20px!important}body:after{content:'';display:block;position:fixed;z-index:0;bottom:-45px;left:0;width:100%;height:125px;background:linear-gradient(170deg,transparent 0 28%,#c2c8a9 29% 33%,#24503d 34% 100%);opacity:.08;pointer-events:none}@media(min-width:700px){.wrap{padding-top:40px}.brand{font-size:52px}.card{padding:30px}}@media(max-width:370px){.wrap{padding:19px 14px 60px}.brand{font-size:35px}#homeBtn{font-size:12px;padding:10px}.card{padding:19px}h1{font-size:34px}}
-</style></head><body><div class="wrap"><header><div class="brand">Prikken</div><button class="secondary" id="homeBtn">Mijn afspraken</button></header><div id="status" class="hidden notice"></div><main id="app"></main><footer>Een eenvoudige datumplanner voor familie en vrienden</footer></div><script type="module">
-// Vervang onderstaande waarden door je eigen Firebase-webconfiguratie.
-const firebaseConfig = {apiKey:'AIzaSyDkZEKMiD-m5b7hUx64L6PDN4FCOA_v4yE',authDomain:'prikken.firebaseapp.com',projectId:'prikken',storageBucket:'prikken.firebasestorage.app',messagingSenderId:'1059410750883',appId:'1:1059410750883:web:d86de3648e0b0d7b207e16',measurementId:'G-J2NPSP6HS7'};
-const configured = firebaseConfig.apiKey !== 'VUL_HIER_IN';
-const appEl=document.querySelector('#app'), statusEl=document.querySelector('#status');
-const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const id=()=>crypto.randomUUID();const fmt=d=>new Intl.DateTimeFormat('nl-NL',{weekday:'long',day:'numeric',month:'long',year:'numeric',timeZone:'UTC'}).format(new Date(d+'T12:00:00Z'));
-const base=location.origin+location.pathname;const linkFor=x=>base+'?a='+encodeURIComponent(x);
-let db,auth,user,unsub=()=>{},unsubAuth=()=>{};
-const show=(msg,type='')=>{statusEl.textContent=msg;statusEl.className='notice '+type;};const clear=()=>statusEl.className='hidden notice';
-function view(html){unsub();unsub=()=>{};appEl.innerHTML=html;}
-function err(e){console.error(e);show('Er ging iets mis: '+(e.code||e.message||'onbekende fout')+'. Controleer je instellingen en probeer opnieuw.','error')}
-if(!configured){view(`<h1>Bijna klaar!</h1><div class="card"><p>De planner is gebouwd. Om afspraken tussen telefoons te synchroniseren, moet je eenmalig je gratis Firebase-project koppelen.</p><p class="muted">Open het meegeleverde bestand README.md voor de stappen. Daarna werkt deze pagina online.</p></div>`);show('Demo zonder database: vul eerst je Firebase-configuratie in.');}
-else {try{const [{initializeApp},{getFirestore,doc,collection,addDoc,getDoc,updateDoc,deleteDoc,onSnapshot,serverTimestamp,query,where,getDocs,writeBatch},{getAuth,onAuthStateChanged,signInWithEmailAndPassword,createUserWithEmailAndPassword,signOut}]=await Promise.all([import('https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js'),import('https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js'),import('https://www.gstatic.com/firebasejs/11.10.0/firebase-auth.js')]);
-const fb=initializeApp(firebaseConfig);db=getFirestore(fb);auth=getAuth(fb);const D=(...x)=>doc(db,...x), C=(...x)=>collection(db,...x);
-const route=()=>{clear();unsubAuth();unsubAuth=()=>{};const appointment=new URLSearchParams(location.search).get('a');if(appointment)participant(appointment);else admin()};
-const nav=(url)=>{history.pushState({},'',url);route()};window.addEventListener('popstate',route);document.querySelector('#homeBtn').onclick=()=>nav(base);
-async function participant(aid){view('<p>Afspraak laden…</p>');const ref=D('appointments',aid);unsub=onSnapshot(ref,s=>{if(!s.exists()||s.data().deleted){view('<h1>Afspraak niet gevonden</h1><p>Deze link is ongeldig of de afspraak is verwijderd.</p>');return}renderParticipant(aid,s.data())},err)}
-function renderParticipant(aid,a){const localKey='datumplanner:'+aid;let saved={};try{saved=JSON.parse(localStorage.getItem(localKey)||'{}')}catch{}const dates=(a.dates||[]).slice().sort();view(`<div class="pill" style="display:inline-block;margin-bottom:16px">${a.closed?'Afgesloten':'Datum kiezen'}</div><h1>${esc(a.title)}</h1><p>Vink alle datums aan waarop je kunt. Je kunt later via dezelfde telefoon je keuze aanpassen.</p><div class="card"><form id="vote" class="stack"><div><label for="name">Jouw naam</label><input id="name" type="text" maxlength="50" required placeholder="Bijvoorbeeld: Sanne" value="${esc(saved.name||'')}"></div><div><label>Wanneer kun je?</label><div class="stack">${dates.map(d=>`<div class="option"><input type="checkbox" id="d-${d}" value="${d}" ${saved.dates?.includes(d)?'checked':''} ${a.closed?'disabled':''}><label for="d-${d}">${esc(fmt(d))}</label></div>`).join('')}</div></div><button ${a.closed?'disabled':''} type="submit">Mijn keuzes opslaan</button></form>${a.closed?'<p class="muted">Deze afspraak is afgesloten. Stemmen kan niet meer.</p>':''}</div><div class="card"><h2>Wie kan wanneer?</h2><div id="votes">Antwoorden laden…</div></div>`);
-const voteQuery=query(C('appointments',aid,'responses'));const off=onSnapshot(voteQuery,s=>{const votes=s.docs.map(d=>({id:d.id,...d.data()}));document.querySelector('#votes').innerHTML=dates.map(d=>{const names=votes.filter(v=>v.dates?.includes(d)).map(v=>v.name);return `<div class="entry"><div class="date-row"><strong>${esc(fmt(d))}</strong><span class="count">${names.length} ✓</span></div><div class="muted" style="margin-top:5px">${names.length?names.map(esc).join(', '):'Nog niemand'}</div></div>`}).join('')||'<p>Geen datums beschikbaar.</p>'},err);unsub=off;
-document.querySelector('#vote').onsubmit=async e=>{e.preventDefault();if(a.closed)return;const name=document.querySelector('#name').value.trim();const chosen=dates.filter(d=>document.getElementById('d-'+d).checked);if(!name){show('Vul eerst je naam in.','error');return}const responseId=saved.id||id();const payload={name,dates:chosen,updatedAt:serverTimestamp()};try{await (saved.id?updateDoc(D('appointments',aid,'responses',responseId),payload):import('https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js').then(m=>m.setDoc(D('appointments',aid,'responses',responseId),payload)));localStorage.setItem(localKey,JSON.stringify({id:responseId,name,dates:chosen}));show('Je keuzes zijn opgeslagen!','success')}catch(e){err(e)}}}
-function admin(){unsubAuth=onAuthStateChanged(auth,u=>{user=u;if(!u){view(`<h1>Mijn afspraken</h1><p>Log in om je eigen afspraken te beheren.</p><div class="card"><form id="login" class="stack"><label>E-mailadres<input type="text" id="email" required autocomplete="email"></label><label>Wachtwoord<input type="password" id="password" required autocomplete="current-password"></label><button>Inloggen</button></form></div><p class="muted">Maak je beheerdersaccount eerst aan in Firebase Authentication. Deelnemers hebben geen account nodig.</p>`);document.querySelector('#login').onsubmit=async e=>{e.preventDefault();try{await signInWithEmailAndPassword(auth,document.querySelector('#email').value.trim(),document.querySelector('#password').value)}catch(e){err(e)}};return}dashboard()})}
-function dashboard(){view(`<div class="row between"><div><h1>Mijn afspraken</h1><p>Maak een afspraak en deel de unieke link.</p></div><button id="logout" class="secondary">Uitloggen</button></div><div class="card"><h2>Nieuwe afspraak</h2><form id="create" class="stack"><label>Titel<input id="title" type="text" required maxlength="100" placeholder="Bijvoorbeeld: Familie-etentje"></label><label>Voeg een datum toe<input id="date" type="date"></label><button type="button" class="secondary" id="addDate">+ Datum toevoegen</button><div id="chosenDates" class="stack"></div><button type="submit">Afspraak maken</button></form></div><h2>Bestaande afspraken</h2><div id="appointments">Laden…</div>`);document.querySelector('#logout').onclick=()=>signOut(auth);let dates=[];const refresh=()=>document.querySelector('#chosenDates').innerHTML=dates.sort().map(d=>`<div class="date-row"><span>${esc(fmt(d))}</span><button type="button" class="secondary" data-remove="${d}">×</button></div>`).join('');document.querySelector('#chosenDates').onclick=e=>{const d=e.target.dataset.remove;if(d){dates=dates.filter(x=>x!==d);refresh()}};document.querySelector('#addDate').onclick=()=>{const d=document.querySelector('#date').value;if(d&&!dates.includes(d)){dates.push(d);refresh()}};
-document.querySelector('#create').onsubmit=async e=>{e.preventDefault();const title=document.querySelector('#title').value.trim();if(!dates.length){show('Voeg minstens één datum toe.','error');return}try{const ref=await addDoc(C('appointments'),{title,dates,ownerUid:user.uid,closed:false,deleted:false,createdAt:serverTimestamp()});show('Afspraak gemaakt! Kopieer de link hieronder.','success');dashboard()}catch(e){err(e)}};
-const q=query(C('appointments'),where('ownerUid','==',user.uid));const off=onSnapshot(q,s=>{const arr=s.docs.map(x=>({id:x.id,...x.data()})).filter(x=>!x.deleted);document.querySelector('#appointments').innerHTML=arr.length?arr.map(a=>`<div class="card"><div class="row between"><strong>${esc(a.title)}</strong><span class="pill">${a.closed?'Afgesloten':'Actief'}</span></div><p class="muted">${a.dates?.length||0} datums</p><div class="row"><button data-copy="${a.id}">Link kopiëren</button><button class="secondary" data-open="${a.id}">Bekijken</button><button class="secondary" data-close="${a.id}">${a.closed?'Heropenen':'Afsluiten'}</button><button class="danger" data-delete="${a.id}">Verwijderen</button></div></div>`).join(''):'<p>Je hebt nog geen afspraken.</p>'},err);unsub=off;
-document.querySelector('#appointments').onclick=async e=>{const t=e.target,aid=t.dataset.copy||t.dataset.open||t.dataset.close||t.dataset.delete;if(!aid)return;if(t.dataset.copy){try{await navigator.clipboard.writeText(linkFor(aid));show('Link gekopieerd. Plak hem in WhatsApp.','success')}catch{show('Kopieer deze link: '+linkFor(aid))}}else if(t.dataset.open){nav(linkFor(aid))}else if(t.dataset.close){const a=await getDoc(D('appointments',aid));await updateDoc(a.ref,{closed:!a.data().closed})}else if(t.dataset.delete){if(confirm('Deze afspraak verwijderen? De link werkt daarna niet meer.'))await updateDoc(D('appointments',aid),{deleted:true,closed:true})}}}
-route();}catch(e){err(e);view('<h1>Verbinding mislukt</h1><p>Controleer de Firebase-instellingen en probeer opnieuw.</p>')}}
-</script></body></html>
+
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#f8f5ef">
+<title>Prikken — samen een datum kiezen</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&family=Great+Vibes&display=swap');
+
+:root{
+  --cream:#f8f5ef;
+  --paper:#fffdf9;
+  --forest:#244d3c;
+  --forest-dark:#173c2d;
+  --ink:#34483c;
+  --muted:#788077;
+  --line:#e6dfd4;
+  --sage:#edf2e9;
+  --gold:#b99b69;
+  --red:#944a46;
+  font-family:'DM Sans',sans-serif;
+  color:var(--ink);
+  background:var(--cream);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  min-height:100vh;
+  background:
+    radial-gradient(ellipse at 92% 0%,#eee6d9 0%,transparent 40%),
+    linear-gradient(160deg,#fffdf8,#f8f5ef 70%,#f1eee5);
+}
+button,input,textarea{font:inherit}
+button{
+  border:0;
+  border-radius:13px;
+  padding:13px 18px;
+  min-height:46px;
+  background:var(--forest);
+  color:white;
+  font-weight:700;
+  cursor:pointer;
+  transition:background .2s,transform .2s;
+}
+button:hover{background:var(--forest-dark)}
+button:active{transform:scale(.98)}
+button:disabled{opacity:.5;cursor:not-allowed}
+button.secondary{
+  background:var(--sage);
+  color:var(--forest);
+}
+button.secondary:hover{background:#dce8d8}
+button.danger{
+  background:#f8e9e5;
+  color:var(--red);
+}
+button.danger:hover{background:#f0d9d3}
+button.small{
+  min-height:35px;
+  padding:8px 12px;
+  font-size:12px;
+}
+button.wide{width:100%}
+button:focus-visible,input:focus-visible{
+  outline:3px solid var(--gold);
+  outline-offset:2px;
+}
+.wrap{
+  max-width:760px;
+  margin:auto;
+  padding:26px 20px 80px;
+  min-height:100vh;
+}
+header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding:8px 0 24px;
+  margin-bottom:35px;
+  border-bottom:1px solid var(--line);
+}
+.brand{
+  font-family:'Great Vibes',cursive;
+  font-size:49px;
+  color:var(--forest);
+  line-height:1;
+}
+.brand:before{
+  content:'✦';
+  font-family:Georgia,serif;
+  font-size:20px;
+  color:var(--gold);
+  margin-right:10px;
+  vertical-align:middle;
+}
+h1,h2,h3{
+  font-family:'DM Serif Display',Georgia,serif;
+  font-weight:400;
+  color:var(--forest-dark);
+}
+h1{
+  font-size:clamp(36px,8vw,53px);
+  line-height:1.1;
+  margin:8px 0 15px;
+}
+h2{font-size:30px;margin:0 0 18px}
+h3{font-size:23px;margin:0 0 12px}
+p{line-height:1.65;color:#6c786f}
+.eyebrow{
+  text-transform:uppercase;
+  letter-spacing:3px;
+  font-size:11px;
+  font-weight:700;
+  color:#9d8863;
+}
+.card{
+  background:var(--paper);
+  border:1px solid var(--line);
+  border-radius:23px;
+  padding:26px;
+  margin:20px 0;
+  box-shadow:0 12px 30px #544c3a0c;
+}
+.card.soft{background:#f5f6ef}
+.stack{display:grid;gap:15px}
+.row{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
+}
+.between{justify-content:space-between}
+.grow{flex:1}
+label{
+  display:block;
+  font-size:14px;
+  font-weight:700;
+  color:var(--ink);
+}
+input[type=text],
+input[type=email],
+input[type=password],
+input[type=date],
+textarea{
+  display:block;
+  width:100%;
+  margin-top:8px;
+  padding:14px 15px;
+  min-height:51px;
+  border:1px solid #dcded5;
+  border-radius:12px;
+  background:white;
+  color:var(--ink);
+  outline:none;
+}
+textarea{min-height:100px;resize:vertical}
+input[type=checkbox]{
+  width:21px;
+  height:21px;
+  accent-color:var(--forest);
+  flex-shrink:0;
+}
+.option{
+  display:flex;
+  align-items:center;
+  gap:13px;
+  padding:15px;
+  background:white;
+  border:1px solid var(--line);
+  border-radius:13px;
+  cursor:pointer;
+}
+.option:has(input:checked){
+  background:#edf4eb;
+  border-color:#a6c3ad;
+}
+.option label{
+  margin:0;
+  flex:1;
+  cursor:pointer;
+}
+.hidden{display:none!important}
+.muted{color:var(--muted);font-size:14px}
+.pill{
+  display:inline-block;
+  background:#e7eee4;
+  color:var(--forest);
+  padding:7px 12px;
+  border-radius:30px;
+  font-size:12px;
+  font-weight:700;
+}
+.pill.closed{background:#f1e8df;color:#82694d}
+.notice{
+  padding:15px 17px;
+  margin:15px 0;
+  border-radius:13px;
+  background:#fff0d9;
+  color:#76521d;
+  font-size:14px;
+  overflow-wrap:anywhere;
+}
+.notice.error{background:#fbe7e4;color:#8b2824}
+.notice.success{background:#e8f3e7;color:#315c3e}
+.entry{
+  padding:15px 0;
+  border-bottom:1px solid var(--line);
+}
+.entry:last-child{border-bottom:0}
+.date-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+}
+.count{
+  font-size:13px;
+  font-weight:700;
+  color:var(--forest);
+  background:var(--sage);
+  border-radius:20px;
+  padding:6px 11px;
+  white-space:nowrap;
+}
+.divider{
+  height:1px;
+  background:var(--line);
+  margin:22px 0;
+}
+.date-list{
+  display:grid;
+  gap:9px;
+}
+.date-item{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  padding:11px 13px;
+  border:1px solid var(--line);
+  border-radius:12px;
+  background:white;
+}
+.response{
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:16px;
+  margin:12px 0;
+  background:white;
+}
+.response strong{font-size:16px}
+.response .muted{margin:6px 0}
+.empty{
+  padding:20px;
+  text-align:center;
+  color:var(--muted);
+  border:1px dashed #d9d9cf;
+  border-radius:14px;
+}
+.hero{
+  text-align:center;
+  padding:15px 5px 12px;
+}
+.hero p{max-width:500px;margin:0 auto 20px}
+.flourish{
+  color:var(--gold);
+  font-size:24px;
+  letter-spacing:10px;
+  margin:20px 0;
+}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:15px}
+.actions button{flex:1 1 125px}
+a{color:var(--forest)}
+footer{
+  text-align:center;
+  color:#9b9b90;
+  font-size:12px;
+  margin-top:50px;
+}
+@media(max-width:480px){
+  .wrap{padding:18px 14px 65px}
+  .brand{font-size:40px}
+  header{margin-bottom:25px}
+  #homeBtn{font-size:12px;padding:10px}
+  .card{padding:19px;border-radius:19px}
+  h2{font-size:27px}
+  .date-row{align-items:flex-start}
+}
+</style>
+</head>
+
+<body>
+<div class="wrap">
+  <header>
+    <div class="brand">Prikken</div>
+    <button id="homeBtn" class="secondary">Mijn afspraken</button>
+  </header>
+
+  <div id="status" class="hidden notice" role="status"></div>
+  <main id="app"></main>
+
+  <footer>Met liefde gepland, samen genoten ✦</footer>
+</div>
+
+<script type="module">
+import {initializeApp} from
+'https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js';
+
+import {
+  getFirestore,doc,collection,addDoc,setDoc,getDoc,
+  updateDoc,deleteDoc,onSnapshot,serverTimestamp,
+  query,where
+} from
+'https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js';
+
+import {
+  getAuth,onAuthStateChanged,
+  signInWithEmailAndPassword,signOut
+} from
+'https://www.gstatic.com/firebasejs/11.10.0/firebase-auth.js';
+
+const firebaseConfig={
+  apiKey:'AIzaSyDkZEKMiD-m5b7hUx64L6PDN4FCOA_v4yE',
+  authDomain:'prikken.firebaseapp.com',
+  projectId:'prikken',
+  storageBucket:'prikken.firebasestorage.app',
+  messagingSenderId:'1059410750883',
+  appId:'1:1059410750883:web:d86de3648e0b0d7b207e16',
+  measurementId:'G-J2NPSP6HS7'
+};
+
+const ADMIN_UID='kNsEvY55b6aJORCjkBi06YKObt13';
+
+const firebase=initializeApp(firebaseConfig);
+const db=getFirestore(firebase);
+const auth=getAuth(firebase);
+
+const appEl=document.getElementById('app');
+const statusEl=document.getElementById('status');
+const $=id=>document.getElementById(id);
+
+const D=(...path)=>doc(db,...path);
+const C=(...path)=>collection(db,...path);
+
+const base=location.origin+location.pathname;
+
+let user=null;
+let unsubscribe=()=>{};
+let unsubscribeExtra=()=>{};
+let unsubscribeAuth=()=>{};
+let routeVersion=0;
+
+const escapeHtml=value=>String(value??'').replace(
+  /[&<>"']/g,
+  char=>({
+    '&':'&amp;',
+    '<':'&lt;',
+    '>':'&gt;',
+    '"':'&quot;',
+    "'":'&#39;'
+  }[char])
+);
+
+function message(text,type=''){
+  statusEl.textContent=text;
+  statusEl.className='notice '+type;
+}
+
+function clearMessage(){
+  statusEl.className='hidden notice';
+}
+
+function error(e){
+  console.error(e);
+  message(
+    'Er ging iets mis: '+(e.message||e.code||'onbekende fout'),
+    'error'
+  );
+}
+
+function view(html){
+  unsubscribe();
+  unsubscribeExtra();
+  unsubscribe=()=>{};
+  unsubscribeExtra=()=>{};
+  appEl.innerHTML=html;
+}
+
+function formatDate(value){
+  if(!value)return '';
+  return new Intl.DateTimeFormat('nl-NL',{
+    weekday:'long',
+    day:'numeric',
+    month:'long',
+    year:'numeric',
+    timeZone:'UTC'
+  }).format(new Date(value+'T12:00:00Z'));
+}
+
+function validDate(value){
+  if(!/^\d{4}-\d{2}-\d{2}$/.test(value))return false;
+  const date=new Date(value+'T12:00:00Z');
+  return !Number.isNaN(date.getTime())
+    && date.toISOString().slice(0,10)===value;
+}
+
+function uniqueDates(dates){
+  return [...new Set(dates.filter(validDate))].sort();
+}
+
+function linkFor(aid){
+  const url=new URL(base);
+  url.searchParams.set('a',aid);
+  return url.href;
+}
+
+function navigate(url){
+  history.pushState({},'',url);
+  route();
+}
+
+window.addEventListener('popstate',route);
+$('homeBtn').onclick=()=>navigate(base);
+
+function route(){
+  const version=++routeVersion;
+  clearMessage();
+  unsubscribeAuth();
+  unsubscribeAuth=()=>{};
+
+  const params=new URLSearchParams(location.search);
+  const aid=params.get('a');
+  const manageId=params.get('manage');
+
+  if(manageId){
+    adminManage(manageId,version);
+  }else if(aid){
+    participant(aid,version);
+  }else{
+    adminHome(version);
+  }
+}
+
+/* ======================================
+   DEELNEMER
+====================================== */
+
+function participant(aid,version){
+  view('<p>Afspraak laden…</p>');
+
+  const ref=D('appointments',aid);
+
+  unsubscribe=onSnapshot(ref,snapshot=>{
+    if(version!==routeVersion)return;
+
+    if(!snapshot.exists()||snapshot.data().deleted){
+      view(`
+        <div class="hero">
+          <div class="eyebrow">Prikken</div>
+          <h1>Afspraak niet gevonden</h1>
+          <p>Deze link is ongeldig of de afspraak is verwijderd.</p>
+        </div>
+      `);
+      return;
+    }
+
+    renderParticipant(aid,snapshot.data(),version);
+  },error);
+}
+
+function renderParticipant(aid,appointment,version){
+  const localKey='datumplanner:'+aid;
+  let saved={};
+
+  try{
+    saved=JSON.parse(localStorage.getItem(localKey)||'{}');
+  }catch{}
+
+  const dates=uniqueDates(appointment.dates||[]);
+
+  view(`
+    <div class="hero">
+      <div class="eyebrow">Samen een moment kiezen</div>
+      <div class="flourish">✦ ❧ ✦</div>
+      <h1>${escapeHtml(appointment.title)}</h1>
+      <p>
+        Wat gezellig dat je erbij bent!
+        Vink alle datums aan waarop je kunt.
+        Je kunt je keuzes later nog aanpassen.
+      </p>
+      <span class="pill ${appointment.closed?'closed':''}">
+        ${appointment.closed?'Afgesloten':'Datum kiezen'}
+      </span>
+    </div>
+
+    <div class="card">
+      <h2>Wanneer kun jij?</h2>
+
+      <form id="vote" class="stack">
+        <label>
+          Jouw naam
+          <input id="name" type="text"
+            maxlength="50"
+            required
+            placeholder="Bijvoorbeeld: Sanne"
+            value="${escapeHtml(saved.name||'')}">
+        </label>
+
+        <div>
+          <label style="margin-bottom:12px">
+            Kies alle datums waarop je kunt
+          </label>
+
+          <div class="stack">
+            ${dates.map(date=>`
+              <div class="option">
+                <input
+                  type="checkbox"
+                  id="d-${date}"
+                  value="${date}"
+                  ${saved.dates?.includes(date)?'checked':''}
+                  ${appointment.closed?'disabled':''}>
+                <label for="d-${date}">
+                  ${escapeHtml(formatDate(date))}
+                </label>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+
+        <button type="submit"
+          ${appointment.closed?'disabled':''}>
+          Mijn keuzes opslaan
+        </button>
+      </form>
+
+      ${appointment.closed?`
+        <p class="muted">
+          Deze afspraak is afgesloten.
+          Stemmen is momenteel niet mogelijk.
+        </p>
+      `:''}
+    </div>
+
+    <div class="card">
+      <div class="eyebrow">Overzicht</div>
+      <h2>Wie kan wanneer?</h2>
+      <div id="votes">Antwoorden laden…</div>
+    </div>
+  `);
+
+  unsubscribeExtra=onSnapshot(
+    C('appointments',aid,'responses'),
+    snapshot=>{
+      if(version!==routeVersion||!$('votes'))return;
+
+      const responses=snapshot.docs.map(item=>({
+        id:item.id,...item.data()
+      }));
+
+      $('votes').innerHTML=dates.map(date=>{
+        const available=responses
+          .filter(response=>response.dates?.includes(date))
+          .map(response=>response.name);
+
+        return `
+          <div class="entry">
+            <div class="date-row">
+              <strong>${escapeHtml(formatDate(date))}</strong>
+              <span class="count">${available.length} ✓</span>
+            </div>
+            <p class="muted">
+              ${available.length
+                ?available.map(escapeHtml).join(', ')
+                :'Nog niemand'}
+            </p>
+          </div>
+        `;
+      }).join('')||'<p>Er zijn nog geen datums.</p>';
+    },
+    error
+  );
+
+  $('vote').onsubmit=async event=>{
+    event.preventDefault();
+
+    if(appointment.closed||appointment.deleted)return;
+
+    const name=$('name').value.trim();
+    const chosen=dates.filter(date=>
+      $('d-'+date)?.checked
+    );
+
+    if(!name){
+      message('Vul eerst je naam in.','error');
+      return;
+    }
+
+    const responseId=saved.id||crypto.randomUUID();
+
+    try{
+      await setDoc(
+        D('appointments',aid,'responses',responseId),
+        {
+          name,
+          dates:chosen,
+          updatedAt:serverTimestamp()
+        }
+      );
+
+      localStorage.setItem(localKey,JSON.stringify({
+        id:responseId,
+        name,
+        dates:chosen
+      }));
+
+      message('Je keuzes zijn opgeslagen!','success');
+    }catch(e){
+      error(e);
+    }
+  };
+}
+
+/* ======================================
+   INLOGGEN EN DASHBOARD
+====================================== */
+
+function adminHome(version){
+  unsubscribeAuth=onAuthStateChanged(auth,account=>{
+    if(version!==routeVersion)return;
+
+    user=account;
+
+    if(!account){
+      loginScreen();
+      return;
+    }
+
+    if(account.uid!==ADMIN_UID){
+      view(`
+        <div class="card">
+          <h2>Geen beheerderstoegang</h2>
+          <p>Dit account heeft geen toegang tot het beheer.</p>
+          <button id="logout">Uitloggen</button>
+        </div>
+      `);
+      $('logout').onclick=()=>signOut(auth);
+      return;
+    }
+
+    dashboard(version);
+  });
+}
+
+function loginScreen(){
+  view(`
+    <div class="hero">
+      <div class="eyebrow">Welkom bij Prikken</div>
+      <h1>Mijn afspraken</h1>
+      <p>
+        Plan samen een mooi moment.
+        Log in om je afspraken te beheren.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>Inloggen</h2>
+
+      <form id="login" class="stack">
+        <label>
+          E-mailadres
+          <input id="email" type="email"
+            autocomplete="email" required>
+        </label>
+
+        <label>
+          Wachtwoord
+          <input id="password" type="password"
+            autocomplete="current-password" required>
+        </label>
+
+        <button type="submit">Inloggen</button>
+      </form>
+    </div>
+  `);
+
+  $('login').onsubmit=async event=>{
+    event.preventDefault();
+
+    try{
+      await signInWithEmailAndPassword(
+        auth,
+        $('email').value.trim(),
+        $('password').value
+      );
+    }catch(e){
+      error(e);
+    }
+  };
+}
+
+function dashboard(version){
+  view(`
+    <div class="row between">
+      <div>
+        <div class="eyebrow">Beheerdersomgeving</div>
+        <h1>Mijn afspraken</h1>
+      </div>
+      <button id="logout" class="secondary small">
+        Uitloggen
+      </button>
+    </div>
+
+    <p>
+      Maak een nieuwe afspraak, nodig iedereen uit
+      en ontdek welke datum het beste uitkomt.
+    </p>
+
+    <div class="card">
+      <h2>Nieuwe afspraak</h2>
+
+      <form id="create" class="stack">
+        <label>
+          Naam van de afspraak
+          <input id="title" type="text"
+            maxlength="100"
+            required
+            placeholder="Bijvoorbeeld: Familie-etentje">
+        </label>
+
+        <label>
+          Datum toevoegen
+          <input id="date" type="date">
+        </label>
+
+        <button type="button" id="addDate" class="secondary">
+          + Datum toevoegen
+        </button>
+
+        <div id="chosenDates" class="date-list"></div>
+
+        <button type="submit">Afspraak maken</button>
+      </form>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="eyebrow">Overzicht</div>
+    <h2>Bestaande afspraken</h2>
+    <div id="appointments">Afspraken laden…</div>
+  `);
+
+  $('logout').onclick=()=>signOut(auth);
+
+  let dates=[];
+
+  function renderChosen(){
+    $('chosenDates').innerHTML=dates.map(date=>`
+      <div class="date-item">
+        <span>${escapeHtml(formatDate(date))}</span>
+        <button type="button"
+          class="secondary small"
+          data-remove="${date}">×</button>
+      </div>
+    `).join('');
+  }
+
+  $('addDate').onclick=()=>{
+    const date=$('date').value;
+
+    if(!validDate(date)){
+      message('Kies eerst een geldige datum.','error');
+      return;
+    }
+
+    dates=uniqueDates([...dates,date]);
+    renderChosen();
+    $('date').value='';
+  };
+
+  $('chosenDates').onclick=event=>{
+    const button=event.target.closest('[data-remove]');
+    if(!button)return;
+
+    dates=dates.filter(date=>
+      date!==button.dataset.remove
+    );
+    renderChosen();
+  };
+
+  $('create').onsubmit=async event=>{
+    event.preventDefault();
+
+    const title=$('title').value.trim();
+
+    if(!title||!dates.length){
+      message('Vul een naam in en voeg minimaal één datum toe.','error');
+      return;
+    }
+
+    try{
+      const ref=await addDoc(C('appointments'),{
+        title,
+        dates,
+        ownerUid:user.uid,
+        closed:false,
+        deleted:false,
+        createdAt:serverTimestamp()
+      });
+
+      message('Afspraak aangemaakt!','success');
+      navigate(base+'?manage='+encodeURIComponent(ref.id));
+    }catch(e){
+      error(e);
+    }
+  };
+
+  unsubscribe=onSnapshot(
+    query(
+      C('appointments'),
+      where('ownerUid','==',user.uid)
+    ),
+    snapshot=>{
+      if(version!==routeVersion||!$('appointments'))return;
+
+      const appointments=snapshot.docs.map(item=>({
+        id:item.id,
+        ...item.data()
+      })).filter(item=>!item.deleted);
+
+      appointments.sort((a,b)=>
+        (b.createdAt?.toMillis?.()||0)-
+        (a.createdAt?.toMillis?.()||0)
+      );
+
+      $('appointments').innerHTML=appointments.length
+        ?appointments.map(appointment=>`
+          <div class="card">
+            <div class="row between">
+              <h3>${escapeHtml(appointment.title)}</h3>
+              <span class="pill ${appointment.closed?'closed':''}">
+                ${appointment.closed?'Afgesloten':'Actief'}
+              </span>
+            </div>
+
+            <p class="muted">
+              ${(appointment.dates||[]).length} datums
+            </p>
+
+            <div class="actions">
+              <button data-copy="${appointment.id}">
+                Link kopiëren
+              </button>
+
+              <button class="secondary"
+                data-manage="${appointment.id}">
+                Beheren
+              </button>
+
+              <button class="secondary"
+                data-open="${appointment.id}">
+                Bekijken
+              </button>
+
+              <button class="danger"
+                data-delete="${appointment.id}">
+                Verwijderen
+              </button>
+            </div>
+          </div>
+        `).join('')
+        :'<div class="empty">Je hebt nog geen afspraken.</div>';
+    },
+    error
+  );
+
+  $('appointments').onclick=async event=>{
+    const button=event.target.closest('button');
+    if(!button)return;
+
+    const aid=
+      button.dataset.copy||
+      button.dataset.manage||
+      button.dataset.open||
+      button.dataset.delete;
+
+    if(!aid)return;
+
+    if(button.dataset.copy){
+      await copyLink(aid);
+    }else if(button.dataset.manage){
+      navigate(base+'?manage='+encodeURIComponent(aid));
+    }else if(button.dataset.open){
+      navigate(linkFor(aid));
+    }else if(button.dataset.delete){
+      if(!confirm('Deze afspraak verwijderen? De link werkt daarna niet meer.'))return;
+
+      try{
+        await updateDoc(D('appointments',aid),{
+          deleted:true,
+          closed:true
+        });
+        message('Afspraak verwijderd.','success');
+      }catch(e){
+        error(e);
+      }
+    }
+  };
+}
+
+async function copyLink(aid){
+  const link=linkFor(aid);
+
+  try{
+    await navigator.clipboard.writeText(link);
+    message('Link gekopieerd!','success');
+  }catch{
+    prompt('Kopieer deze link:',link);
+  }
+}
+
+/* ======================================
+   BEHEER VAN ÉÉN AFSPRAAK
+====================================== */
+
+function adminManage(aid,version){
+  unsubscribeAuth=onAuthStateChanged(auth,account=>{
+    if(version!==routeVersion)return;
+
+    user=account;
+
+    if(!account||account.uid!==ADMIN_UID){
+      navigate(base);
+      return;
+    }
+
+    manageAppointment(aid,version);
+  });
+}
+
+function manageAppointment(aid,version){
+  view('<p>Beheer laden…</p>');
+
+  unsubscribe=onSnapshot(
+    D('appointments',aid),
+    snapshot=>{
+      if(version!==routeVersion)return;
+
+      if(!snapshot.exists()||snapshot.data().deleted){
+        navigate(base);
+        return;
+      }
+
+      renderManagement(aid,snapshot.data(),version);
+    },
+    error
+  );
+}
+
+function renderManagement(aid,appointment,version){
+  const dates=uniqueDates(appointment.dates||[]);
+
+  view(`
+    <div class="eyebrow">Beheerdersomgeving</div>
+    <h1>${escapeHtml(appointment.title)}</h1>
+
+    <div class="row">
+      <span class="pill ${appointment.closed?'closed':''}">
+        ${appointment.closed?'Afgesloten':'Actief'}
+      </span>
+      <button id="back" class="secondary small">
+        Terug naar overzicht
+      </button>
+    </div>
+
+    <div class="card">
+      <h2>Afspraak aanpassen</h2>
+
+      <form id="editAppointment" class="stack">
+        <label>
+          Naam van de afspraak
+          <input id="editTitle"
+            type="text"
+            maxlength="100"
+            required
+            value="${escapeHtml(appointment.title)}">
+        </label>
+
+        <label>
+          Nieuwe datum toevoegen
+          <input id="editDate" type="date">
+        </label>
+
+        <button type="button"
+          id="addEditDate"
+          class="secondary">
+          + Datum toevoegen
+        </button>
+
+        <div id="editDates" class="date-list"></div>
+
+        <button type="submit" class="wide">
+          Wijzigingen opslaan
+        </button>
+      </form>
+
+      <div class="divider"></div>
+
+      <div class="actions">
+        <button id="copyLink">Link kopiëren</button>
+        <button id="toggleClosed" class="secondary">
+          ${appointment.closed?'Afspraak heropenen':'Afspraak afsluiten'}
+        </button>
+        <button id="deleteAppointment" class="danger">
+          Afspraak verwijderen
+        </button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="eyebrow">Deelnemers</div>
+      <h2>Namen en antwoorden beheren</h2>
+      <p class="muted">
+        Wijzig een naam of de gekozen datums.
+        Je kunt ook een deelnemer helemaal verwijderen.
+      </p>
+
+      <div id="responses">Antwoorden laden…</div>
+    </div>
+  `);
+
+  $('back').onclick=()=>navigate(base);
+  $('copyLink').onclick=()=>copyLink(aid);
+
+  let editedDates=[...dates];
+
+  function renderDates(){
+    $('editDates').innerHTML=editedDates.map(date=>`
+      <div class="date-item">
+        <span>${escapeHtml(formatDate(date))}</span>
+        <button type="button"
+          class="danger small"
+          data-remove-date="${date}">
+          Verwijderen
+        </button>
+      </div>
+    `).join('');
+  }
+
+  renderDates();
+
+  $('addEditDate').onclick=()=>{
+    const date=$('editDate').value;
+
+    if(!validDate(date)){
+      message('Kies eerst een geldige datum.','error');
+      return;
+    }
+
+    editedDates=uniqueDates([...editedDates,date]);
+    renderDates();
+    $('editDate').value='';
+  };
+
+  $('editDates').onclick=event=>{
+    const button=event.target.closest('[data-remove-date]');
+    if(!button)return;
+
+    editedDates=editedDates.filter(date=>
+      date!==button.dataset.removeDate
+    );
+    renderDates();
+  };
+
+  $('editAppointment').onsubmit=async event=>{
+    event.preventDefault();
+
+    const title=$('editTitle').value.trim();
+
+    if(!title||!editedDates.length){
+      message(
+        'Een afspraak moet een naam en minimaal één datum hebben.',
+        'error'
+      );
+      return;
+    }
+
+    const removed=dates.filter(date=>
+      !editedDates.includes(date)
+    );
+
+    if(removed.length&&!confirm(
+      'Je verwijdert één of meer datums. De keuzes voor deze datums worden niet meer getoond. Doorgaan?'
+    ))return;
+
+    try{
+      await updateDoc(D('appointments',aid),{
+        title,
+        dates:editedDates
+      });
+
+      message('Afspraak aangepast!','success');
+    }catch(e){
+      error(e);
+    }
+  };
+
+  $('toggleClosed').onclick=async()=>{
+    try{
+      await updateDoc(D('appointments',aid),{
+        closed:!appointment.closed
+      });
+
+      message(
+        appointment.closed
+          ?'Afspraak heropend.'
+          :'Afspraak afgesloten.',
+        'success'
+      );
+    }catch(e){
+      error(e);
+    }
+  };
+
+  $('deleteAppointment').onclick=async()=>{
+    if(!confirm(
+      'Weet je zeker dat je deze afspraak wilt verwijderen? De deelnemerslink werkt daarna niet meer.'
+    ))return;
+
+    try{
+      await updateDoc(D('appointments',aid),{
+        deleted:true,
+        closed:true
+      });
+
+      navigate(base);
+      message('Afspraak verwijderd.','success');
+    }catch(e){
+      error(e);
+    }
+  };
+
+  unsubscribeExtra=onSnapshot(
+    C('appointments',aid,'responses'),
+    snapshot=>{
+      if(version!==routeVersion||!$('responses'))return;
+
+      const responses=snapshot.docs.map(item=>({
+        id:item.id,
+        ...item.data()
+      }));
+
+      responses.sort((a,b)=>
+        (a.name||'').localeCompare(b.name||'','nl')
+      );
+
+      renderResponses(aid,responses,editedDates);
+    },
+    error
+  );
+}
+
+/* ======================================
+   DEELNEMERS BEHEREN
+====================================== */
+
+function renderResponses(aid,responses,dates){
+  const target=$('responses');
+  if(!target)return;
+
+  if(!responses.length){
+    target.innerHTML=`
+      <div class="empty">
+        Er zijn nog geen deelnemers die gereageerd hebben.
+      </div>
+    `;
+    return;
+  }
+
+  target.innerHTML=responses.map((response,index)=>{
+    const chosen=(response.dates||[])
+      .filter(date=>dates.includes(date));
+
+    return `
+      <div class="response">
+        <div class="row between">
+          <strong>${escapeHtml(response.name)}</strong>
+          <span class="pill">
+            ${chosen.length} datums
+          </span>
+        </div>
+
+        <p class="muted">
+          ${chosen.length
+            ?chosen.map(formatDate).map(escapeHtml).join(', ')
+            :'Geen datums gekozen'}
+        </p>
+
+        <div class="actions">
+          <button class="secondary small"
+            data-edit-response="${index}">
+            Aanpassen
+          </button>
+
+          <button class="danger small"
+            data-delete-response="${index}">
+            Verwijderen
+          </button>
+        </div>
+      </div>
+    `;
+  }).join('');
+
+  target.onclick=async event=>{
+    const button=event.target.closest('button');
+    if(!button)return;
+
+    if(button.dataset.editResponse!==undefined){
+      const response=responses[Number(button.dataset.editResponse)];
+      if(response)editResponse(aid,response,dates);
+    }
+
+    if(button.dataset.deleteResponse!==undefined){
+      const response=responses[Number(button.dataset.deleteResponse)];
+      if(!response)return;
+
+      if(!confirm(
+        `Wil je ${response.name} en alle bijbehorende antwoorden verwijderen?`
+      ))return;
+
+      try{
+        await deleteDoc(
+          D('appointments',aid,'responses',response.id)
+        );
+
+        message('Deelnemer verwijderd.','success');
+      }catch(e){
+        error(e);
+      }
+    }
+  };
+}
+
+function editResponse(aid,response,dates){
+  const existing=$('responseEditor');
+  if(existing)existing.remove();
+
+  const card=document.createElement('div');
+  card.id='responseEditor';
+  card.className='card soft';
+
+  card.innerHTML=`
+    <div class="eyebrow">Deelnemer aanpassen</div>
+    <h2>${escapeHtml(response.name)}</h2>
+
+    <form id="responseForm" class="stack">
+      <label>
+        Naam
+        <input id="responseName"
+          type="text"
+          maxlength="50"
+          required
+          value="${escapeHtml(response.name)}">
+      </label>
+
+      <div>
+        <label style="margin-bottom:12px">
+          Beschikbare datums
+        </label>
+
+        <div class="stack">
+          ${dates.map(date=>`
+            <div class="option">
+              <input type="checkbox"
+                id="edit-response-${date}"
+                value="${date}"
+                ${response.dates?.includes(date)?'checked':''}>
+              <label for="edit-response-${date}">
+                ${escapeHtml(formatDate(date))}
+              </label>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+
+      <button type="submit">Deelnemer opslaan</button>
+      <button type="button"
+        id="cancelResponse"
+        class="secondary">
+        Annuleren
+      </button>
+    </form>
+  `;
+
+  const target=$('responses');
+  target.parentElement.insertBefore(card,target);
+
+  card.scrollIntoView({
+    behavior:'smooth',
+    block:'start'
+  });
+
+  $('cancelResponse').onclick=()=>card.remove();
+
+  $('responseForm').onsubmit=async event=>{
+    event.preventDefault();
+
+    const name=$('responseName').value.trim();
+    const chosen=dates.filter(date=>
+      $('edit-response-'+date)?.checked
+    );
+
+    if(!name){
+      message('Vul een naam in.','error');
+      return;
+    }
+
+    try{
+      await updateDoc(
+        D('appointments',aid,'responses',response.id),
+        {
+          name,
+          dates:chosen,
+          updatedAt:serverTimestamp()
+        }
+      );
+
+      card.remove();
+      message('Deelnemer aangepast!','success');
+    }catch(e){
+      error(e);
+    }
+  };
+}
+
+/* ======================================
+   START
+====================================== */
+
+route();
+</script>
+</body>
+</html>
